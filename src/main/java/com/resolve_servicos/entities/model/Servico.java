@@ -20,6 +20,7 @@ public class Servico {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAgendamento;
     private LocalTime horarioAgendamento;
+    private LocalDate dataExecucao;
     @Column(precision = 10, scale = 2)
     private BigDecimal valorOrcamento;
     @Column(precision = 10, scale = 2)
@@ -77,6 +78,14 @@ public class Servico {
 
     public void setHorarioAgendamento(LocalTime horarioAgendamento) {
         this.horarioAgendamento = horarioAgendamento;
+    }
+
+    public LocalDate getDataExecucao() {
+        return dataExecucao;
+    }
+
+    public void setDataExecucao(LocalDate dataExecucao) {
+        this.dataExecucao = dataExecucao;
     }
 
     public BigDecimal getValorOrcamento() {

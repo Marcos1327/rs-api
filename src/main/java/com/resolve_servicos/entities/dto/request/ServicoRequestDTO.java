@@ -14,6 +14,7 @@ public class ServicoRequestDTO {
     private String descricao;
     private LocalDate dataAgendamento;
     private LocalTime horarioAgendamento;
+    private LocalDate dataExecucao;
     private BigDecimal valorOrcamento;
     private BigDecimal valorFinal;
     private String observacao;
@@ -67,6 +68,14 @@ public class ServicoRequestDTO {
 
     public void setHorarioAgendamento(LocalTime horarioAgendamento) {
         this.horarioAgendamento = horarioAgendamento;
+    }
+
+    public LocalDate getDataExecucao() {
+        return dataExecucao;
+    }
+
+    public void setDataExecucao(LocalDate dataExecucao) {
+        this.dataExecucao = dataExecucao;
     }
 
     public BigDecimal getValorOrcamento() {

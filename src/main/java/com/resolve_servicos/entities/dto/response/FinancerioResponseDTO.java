@@ -1,6 +1,5 @@
 package com.resolve_servicos.entities.dto.response;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.List;
 
