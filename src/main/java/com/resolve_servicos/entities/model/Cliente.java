@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_clientes")
@@ -26,6 +28,8 @@ public class Cliente {
     private LocalDate dataCriacao;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAtualizacao;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL,  orphanRemoval = true)
+    private List<Servico> servicos = new ArrayList<>();
 
     public Cliente() {
     }
@@ -104,5 +108,29 @@ public class Cliente {
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDate dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDate getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(LocalDate dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 }

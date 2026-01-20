@@ -1,5 +1,7 @@
 package com.resolve_servicos.entities.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 public class ClienteResponseDTO {
@@ -15,7 +17,9 @@ public class ClienteResponseDTO {
     private String observacao;
     private Boolean ativo;
     private Integer totalServicos;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAtualizacao;
 
     public ClienteResponseDTO() {

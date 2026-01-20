@@ -6,7 +6,7 @@ public class ClienteResumoDTO {
     private String nome;
     private String telefone;
     private String endereco;
-    private Integer totalServico;
+    private Integer totalServicos;
 
     public ClienteResumoDTO() {
     }
@@ -43,11 +43,11 @@ public class ClienteResumoDTO {
         this.endereco = endereco;
     }
 
-    public Integer getTotalServico() {
-        return totalServico;
+    public Integer getTotalServicos() {
+        return totalServicos;
     }
 
-    public void setTotalServico(Integer totalServico) {
-        this.totalServico = totalServico;
+    public void setTotalServicos(Integer totalServicos) {
+        this.totalServicos = totalServicos;
     }
 }
