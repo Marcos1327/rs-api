@@ -18,8 +18,6 @@ public interface ClienteMapper {
 
     Cliente toEntity(ClienteRequestDTO clienteRequestDTO);
 
-    void updateEntityFromDTO(ClienteRequestDTO clienteRequestDTO, @MappingTarget Cliente cliente);
-
     @Mapping(target = "totalServicos", expression = "java(cliente.getServicos() != null ? cliente.getServicos().size() : 0)")
     ClienteResponseDTO toResponseDTO(Cliente cliente);
 

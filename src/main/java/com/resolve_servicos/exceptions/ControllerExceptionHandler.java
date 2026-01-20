@@ -1,5 +1,6 @@
 package com.resolve_servicos.exceptions;
 
+import com.resolve_servicos.exceptions.handlers.BusinessException;
 import com.resolve_servicos.exceptions.handlers.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,19 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpStatus status = HttpStatus.NOT_FOUND;
+        ResponseError body = new ResponseError();
+        body.setCodigo(status.value());
+        body.setMensagem(ex.getMessage());
+
+        return handleExceptionInternal(ex, body, headers, status, request);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Object> handleBusinessException(BusinessException ex, WebRequest request) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
