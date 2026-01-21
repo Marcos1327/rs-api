@@ -36,7 +36,7 @@ public class Servico {
     @Column(nullable = false)
     private EnumStatusServico statusServico = EnumStatusServico.SOLICITADO;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipo_servico_id", nullable = false)
+    @JoinColumn(name = "tipo_servico_id")
     private TipoServico tipoServico;
     @OneToOne(mappedBy = "servico", cascade = CascadeType.ALL, orphanRemoval = true)
     private Pagamento pagamento;
