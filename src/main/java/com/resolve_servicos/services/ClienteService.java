@@ -117,6 +117,7 @@ public class ClienteService {
         Cliente cliente = clienteRepository.findById(clienteId).orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
 
         cliente.setAtivo(true);
+        cliente.setDataAtualizacao(LocalDate.now());
         Cliente clienteReativado = clienteRepository.save(cliente);
         return clienteMapper.toResponseDTO(clienteReativado);
     }

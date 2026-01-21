@@ -1,5 +1,6 @@
 package com.resolve_servicos.entities.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.resolve_servicos.enums.EnumStatusServico;
 
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ public class ServicoResponseDTO {
     private TipoServicoResponseDTO tipoServicoResponseDTO;
     private EnumStatusServico status;
     private String statusDescricao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAgendamento;
     private LocalTime horarioAgendamento;
     private BigDecimal valorOrcamento;
@@ -20,7 +22,9 @@ public class ServicoResponseDTO {
     private String descricao;
     private String observacao;
     private PagamentoResponseDTO pagamento;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAtualizacao;
 
     public ServicoResponseDTO() {

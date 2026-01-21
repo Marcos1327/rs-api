@@ -19,7 +19,7 @@ public class Pagamento {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate  dataPagamento;
     @Column(nullable = false)
-    private Boolean status = false;
+    private Boolean pago = false;
     private String observacao;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao;
@@ -30,4 +30,75 @@ public class Pagamento {
     private Servico servico;
     @Enumerated(EnumType.STRING)
     private EnumFormaPagamento formaPagamento;
+
+    public Pagamento() {
+    }
+
+    public Long getPagamentoId() {
+        return pagamentoId;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public LocalDate getDataPagamento() {
+        return dataPagamento;
+    }
+
+    public void setDataPagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
+    }
+
+    public Boolean getPago() {
+        return pago;
+    }
+
+    public void setPago(Boolean pago) {
+        this.pago = pago;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDate dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDate getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(LocalDate dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
+    }
+
+    public EnumFormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(EnumFormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
 }

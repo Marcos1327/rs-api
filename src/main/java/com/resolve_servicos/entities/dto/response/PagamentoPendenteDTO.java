@@ -1,5 +1,7 @@
 package com.resolve_servicos.entities.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -8,6 +10,7 @@ public class PagamentoPendenteDTO {
     private Long servicoId;
     private String clienteNome;
     private String tipoServico;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataServico;
     private BigDecimal valor;
 

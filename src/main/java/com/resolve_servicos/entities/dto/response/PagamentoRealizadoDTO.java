@@ -1,5 +1,6 @@
 package com.resolve_servicos.entities.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.resolve_servicos.enums.EnumFormaPagamento;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ public class PagamentoRealizadoDTO {
 
     private Long pagamentoId;
     private String clienteNome;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataPagamento;
     private EnumFormaPagamento formaPagamento;
     private String formaPagamentoDescricao;

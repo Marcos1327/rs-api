@@ -10,17 +10,17 @@ import java.util.Optional;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
+    List<Cliente> findByAtivoTrue();
+
+    List<Cliente> findByNomeContainingIgnoreCaseAndAtivoTrue(String nome);
+
     boolean existsByTelefoneAndAtivoTrue(String telefone);
 
     Optional<Cliente> findByClienteIdAndAtivoTrue(Long clienteId);
 
     @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Cliente c " +
-           "WHERE c.telefone = :telefone AND c.ativo = true AND c.clienteId != :clienteId")
+            "WHERE c.telefone = :telefone AND c.ativo = true AND c.clienteId != :clienteId")
     boolean existsByTelefoneAndClienteIdNotAndAtivoTrue(@Param("telefone") String telefone, @Param("clienteId") Long clienteId);
-
-    List<Cliente> findByAtivoTrue();
-
-    List<Cliente> findByNomeContainingIgnoreCaseAndAtivoTrue(String nome);
 
     @Query("SELECT c from Cliente c left join fetch c.servicos where c.clienteId =:clienteId and c.ativo = true")
     Optional<Cliente> findByClienteIdWithServicos(Long clienteId);
